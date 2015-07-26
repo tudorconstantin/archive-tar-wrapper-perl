@@ -4,6 +4,11 @@
 ######################################################################
 use ExtUtils::MakeMaker;
 
+my $preop =
+    'perldoc -uT $(VERSION_FROM) | tee $(DISTVNAME)/README.pod > README.pod;' .
+    'pod2markdown README.pod > README.md';
+
+
 my $meta_merge = {
     META_MERGE => {
         resources => {
@@ -15,6 +20,12 @@ my $meta_merge = {
 WriteMakefile(
     'NAME'         => 'Archive::Tar::Wrapper',
     'VERSION_FROM' => 'lib/Archive/Tar/Wrapper.pm', # finds $VERSION
+    'BUILD_REQUIRES' => {
+      Pod::Markdown => '2.002',
+    },
+    'dist'           => {
+      PREOP => $preop,
+    },
     'PREREQ_PM'    => {
         File::Temp    => 0,
         Cwd           => 0,
