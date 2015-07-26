@@ -38,3 +38,7 @@ WriteMakefile(
       (ABSTRACT_FROM => 'lib/Archive/Tar/Wrapper.pm',
        AUTHOR     => 'Mike Schilli <cpan@perlmeister.com>') : ()),
 );
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.55_03) } ) {
+  delete $WriteMakefileArgs{BUILD_REQUIRES};
+}
