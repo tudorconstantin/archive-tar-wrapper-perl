@@ -499,7 +499,7 @@ __END__
 
 =head1 NAME
 
-Archive::Tar::Wrapper - API wrapper around the 'tar' utility
+L<Archive::Tar::Wrapper> - API wrapper around the 'tar' utility
 
 =head1 SYNOPSIS
 
@@ -544,7 +544,7 @@ directory structures on disk instead. It provides a mapping between
 the logical paths in the tarball and the 'real' files in the temporary
 directory on disk.
 
-It differs from Archive::Tar in two ways:
+It differs from L<Archive::Tar> in two ways:
 
 =over 4
 
